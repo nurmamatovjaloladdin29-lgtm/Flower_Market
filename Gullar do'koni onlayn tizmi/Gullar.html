@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Gullar do'koni boshqaruv tizimi</title>
+  <link rel="icon" href="icons/Flower.svg" type="icon/img">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <!-- HEADER start-->
+  <header>
+    <div class="bar">
+      <div class="brand">Gullar do'koni boshqaruv tizimi
+        <img src="icons/Flower.svg" alt="" class="brand-image">
+      </div>
+
+      <nav aria-label="Asosiy menyu">
+        <a href="#katalog">Gullar katalogi</a>
+        <a href="#narxlar">Gullar narxlari</a>
+        <a href="#buyurtmalar">Buyurtmalar</a>
+        <a href="#mijozlar">Mijozlar</a>
+        <a href="#yetkazish">Yetkazib berish</a>
+        <a href="#tolovlar">To'lovlar</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN start-->
+  <main>
+
+
+    <h1>Boshqaruv paneli</h1>
+    <p class="sub">Katalog, buyurtma, mijoz, yetkazib berish va to'lovlar bir joyda</p>
+    <div class="stats" id="stats"></div>
+
+    <section id="katalog">
+      <h2>Gullar katalogi</h2>
+      <p class="sub">Yangi gul qo'shing yoki zaxirani yangilang</p>
+      <div class="panel">
+        <form id="fFlower">
+          <label>Gul nomi<input name="name" required placeholder="Masalan: Lola"></label>
+          <label>Narxi (so'm)<input name="price" placeholder="Masalan: 150000 so'm" type="number" min="0" step="500"
+              required></label>
+          <label>Zaxira (dona)<input name="stock" type="number" placeholder="Masalan: 2 dona" min="0" required></label>
+          <button type="submit">Gul qo'shish</button>
+        </form>
+      </div>
+      <div class="grid" id="catalog"></div>
+    </section>
+
+    <section id="narxlar">
+      <h2>Gullar narxlari</h2>
+      <p class="sub">Bir dona gul narxi, narxni shu yerda o'zgartirish mumkin</p>
+      <div class="tw">
+        <table>
+          <thead>
+            <tr>
+              <th>Gul</th>
+              <th>Narxi (so'm)</th>
+              <th>Zaxira</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="prices"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="buyurtmalar">
+      <h2>Buyurtmalar</h2>
+      <p class="sub">Buyurtma yaratilganda yetkazib berish va to'lov yozuvi avtomatik qo'shiladi</p>
+      <div class="panel">
+        <form id="fOrder">
+          <label>Mijoz<select name="customer" id="selCustomer" required></select></label>
+          <label>Gul<select name="flower" id="selFlower" required></select></label>
+          <label>Soni<input name="qty" type="number" min="1" value="1" required></label>
+          <label>Manzil<input name="address" required placeholder="Ko'cha va uy"></label>
+          <label>To'lov turi
+            <select name="method">
+              <option>Naqd pul</option>
+              <option>Karta</option>
+              <option>Click</option>
+              <option>Payme</option>
+            </select>
+          </label>
+          <button type="submit">Buyurtma berish</button>
+        </form>
+      </div>
+      <div class="tw">
+        <table>
+          <thead>
+            <tr>
+              <th>№</th>
+              <th>Mijoz</th>
+              <th>Gul</th>
+              <th>Soni</th>
+              <th>Summa</th>
+              <th>Holati</th>
+            </tr>
+          </thead>
+          <tbody id="orders"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="mijozlar">
+      <h2>Mijozlar</h2>
+      <p class="sub">Mijozlar ro'yxati va ularning umumiy xaridi</p>
+      <div class="panel">
+        <form id="fCustomer">
+          <label>Ism<input name="name" required placeholder="Masalan: Feruzbek"> </label>
+          <label>Telefon<input name="phone" required placeholder="+998 90 123 45 67"></label>
+          <button type="submit">Mijoz qo'shish</button>
+        </form>
+      </div>
+      <div class="tw">
+        <table>
+          <thead>
+            <tr>
+              <th>Ism</th>
+              <th>Telefon</th>
+              <th>Buyurtmalar</th>
+              <th>Jami xarid</th>
+            </tr>
+          </thead>
+          <tbody id="customers"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="yetkazish">
+      <h2>Yetkazib berish</h2>
+      <p class="sub">Har bir buyurtma bo'yicha manzil va yetkazish holati</p>
+      <div class="tw">
+        <table>
+          <thead>
+            <tr>
+              <th>Buyurtma</th>
+              <th>Mijoz</th>
+              <th>Manzil</th>
+              <th>Holati</th>
+            </tr>
+          </thead>
+          <tbody id="deliveries"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="tolovlar">
+      <h2>To'lovlar</h2>
+      <p class="sub">To'lov turi va holati</p>
+      <div class="tw">
+        <table>
+          <thead>
+            <tr>
+              <th>Buyurtma</th>
+              <th>Mijoz</th>
+              <th>Summa</th>
+              <th>Turi</th>
+              <th>Holati</th>
+            </tr>
+          </thead>
+          <tbody id="payments"></tbody>
+        </table>
+      </div>
+
+
+      <a href="#top" class="back-to-up_button" title="Yuqoriga qaytish">
+        <img src="Icons/top-circle-svgrepo-com.svg" alt="Back to head" class="footer-top-icon">
+      </a>
+
+      </div>
+    </section>
+  </main>
+
+
+
+  <div id="toast" role="status"></div>
+
+  <!-- Js templates -->
+  <template id="tpl-stat">
+    <div class="stat"><span class="num" data-f="n"></span><span data-f="l"></span></div>
+  </template>
+
+  <template id="tpl-flower">
+    <div class="flower">
+      <div class="dot" data-f="dot"></div>
+      <b data-f="name"></b>
+      <span class="price" data-f="price"></span>
+      <span class="muted" data-f="stock"></span>
+    </div>
+  </template>
+
+  <template id="tpl-price-row">
+    <tr>
+      <td data-f="name"></td>
+      <td><input type="number" min="0" step="500" data-f="priceInput" aria-label="Gul narxi"></td>
+      <td data-f="stock"></td>
+      <td><button type="button" class="ghost" data-act="del">O'chirish</button></td>
+    </tr>
+  </template>
+
+  <template id="tpl-order-row">
+    <tr>
+      <td data-f="no"></td>
+      <td data-f="customer"></td>
+      <td data-f="flower"></td>
+      <td data-f="qty"></td>
+      <td data-f="sum"></td>
+      <td><span class="tag" data-f="status"></span></td>
+    </tr>
+  </template>
+
+  <template id="tpl-customer-row">
+    <tr>
+      <td data-f="name"></td>
+      <td data-f="phone"></td>
+      <td data-f="count"></td>
+      <td data-f="total"></td>
+    </tr>
+  </template>
+
+  <template id="tpl-delivery-row">
+    <tr>
+      <td data-f="no"></td>
+      <td data-f="customer"></td>
+      <td data-f="address"></td>
+      <td>
+        <select data-f="status" aria-label="Yetkazish holati">
+          <option>Tayyorlanmoqda</option>
+          <option>Yo'lda</option>
+          <option>Yetkazildi</option>
+        </select>
+      </td>
+    </tr>
+  </template>
+
+  <template id="tpl-payment-row">
+    <tr>
+      <td data-f="no"></td>
+      <td data-f="customer"></td>
+      <td data-f="sum"></td>
+      <td data-f="method"></td>
+      <td>
+        <select data-f="status" aria-label="To'lov holati">
+          <option>Kutilmoqda</option>
+          <option>To'landi</option>
+        </select>
+      </td>
+    </tr>
+  </template>
+
+  <template id="tpl-empty">
+    <tr>
+      <td class="empty" data-f="text"></td>
+    </tr>
+  </template>
+
+</body>
+
+</html>

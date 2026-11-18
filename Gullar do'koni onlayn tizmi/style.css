@@ -1,0 +1,462 @@
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+     :root {
+          --bg: #17201b;
+          --surface: #1f2b25;
+          --ink: #eef3ef;
+          --muted: #a4b3aa;
+          --line: #33443b;
+          --leaf: #dfd196;
+          --rose: #e4708d;
+          --rose-soft: #3a2430;
+          --ok: #4d986f;
+          --warn: #ca9635;
+          color-scheme: dark;
+          --head: 'Poppins', sans-serif;
+          --body: ui-sans-serif, system-ui, Arial, sans-serif;
+     }
+}
+
+html {
+     scroll-behavior: smooth;
+     scroll-padding-top: calc(72px + env(safe-area-inset-top, 0px));
+}
+
+body {
+     margin: 0;
+     padding-top: env(safe-area-inset-top, 0px);
+     padding-bottom: env(safe-area-inset-bottom, 0px);
+     background: var(--bg);
+     color: var(--ink);
+     font-family: var(--body);
+     font-size: 15px;
+     line-height: 1.5;
+     background-color: #F4F3EF;
+     cursor: url('Cursors/cursor.svg') 0 0, auto;
+}
+
+h1,
+h2,
+h3,
+.num,
+th,
+button,
+.brand {
+     font-family: var(--head);
+}
+
+/* Header */
+header {
+     position: sticky;
+     top: env(safe-area-inset-top, 0px);
+     z-index: 20;
+     background: var(--leaf);
+     color: #fff;
+     font-family: 'Poppins';
+}
+
+.bar {
+     max-width: 1120px;
+     margin: auto;
+     padding: 12px 20px;
+     display: flex;
+     align-items: center;
+     gap: 24px;
+     flex-wrap: wrap;
+     padding-bottom: 20px;
+     padding-top: 20px;
+     color: #000;
+}
+
+.brand {
+     font-weight: 600;
+     font-size: 18px;
+     white-space: nowrap;
+     margin-right: 100px;
+     position: relative;
+     display: inline-grid;
+     place-items: center;
+     opacity: 1;
+}
+
+/* Brand logo animation */
+
+header {
+     text-align: center;
+}
+
+.brand-image {
+     height: 50px;
+     object-fit: contain;
+     opacity: 1;
+     position: absolute;
+     left: 155px;
+}
+
+.brand .brand-image {
+     grid-area: 1 / 1;
+     transition: all 0.45s ease;
+}
+/*  */
+
+nav {
+     display: flex;
+     gap: 4px;
+     overflow-x: auto;
+     max-width: 100%;
+}
+
+nav a {
+     color: #fff;
+     text-decoration: none;
+     padding: 7px 12px;
+     border-radius: 8px;
+     font-size: 14px;
+     white-space: nowrap;
+     opacity: .9;
+     cursor: url('Cursors/pointinghand.svg') 0 0, auto;
+}
+
+nav a:hover,
+nav a:focus-visible {
+     background: rgba(255, 255, 255, .18);
+     outline: none;
+     opacity: 1;
+     transition: 300ms;
+}
+
+/* ===== Main ===== */
+main {
+     max-width: 1120px;
+     margin: auto;
+     padding: 0 20px 48px;
+}
+
+section {
+     padding: 40px 0 8px;
+}
+
+h1 {
+     font-size: 34px;
+     margin: 36px 0 6px;
+     font-weight: 700;
+     color: #33443b;
+}
+
+h2 {
+     font-size: 27px;
+     margin: 0 0 4px;
+     font-weight: 600;
+     color: #343232;
+}
+
+.sub {
+     color: var(--muted);
+     margin: 0 0 18px;
+}
+
+.stats {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+     gap: 12px;
+     margin-top: 20px;
+}
+
+.stat {
+     background: var(--surface);
+     border: 1px solid var(--line);
+     border-radius: 12px;
+     padding: 14px 16px;
+}
+
+.stat .num {
+     font-size: 24px;
+     font-weight: 600;
+     display: block;
+}
+
+.stat span:last-child {
+     color: var(--muted);
+     font-size: 13px;
+}
+
+
+.grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+     gap: 12px;
+}
+
+.flower {
+     background: var(--surface);
+     border: 1px solid var(--line);
+     border-radius: 12px;
+     padding: 14px;
+     display: flex;
+     flex-direction: column;
+     gap: 4px;
+}
+
+.flower b {
+     font-family: var(--head);
+     font-weight: 500;
+}
+
+.price {
+     font-family: var(--head);
+     font-weight: 600;
+     color: var(--rose);
+     font-size: 17px;
+}
+
+.low {
+     color: var(--warn);
+     font-size: 13px;
+}
+
+.muted {
+     color: var(--muted);
+     font-size: 13px;
+}
+
+
+.panel {
+     background: var(--surface);
+     border: 1px solid var(--line);
+     border-radius: 12px;
+     padding: 16px;
+     margin-bottom: 14px;
+}
+
+form {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 10px;
+     align-items: end;
+}
+
+label {
+     display: flex;
+     flex-direction: column;
+     gap: 4px;
+     font-size: 13px;
+     color: var(--muted);
+     flex: 1 1 140px;
+}
+
+input {
+     cursor: url('Cursors/pointinghand.svg') 0 0, auto;
+}
+
+input,
+select {
+     font: inherit;
+     padding: 9px 10px;
+     border: 1px solid var(--line);
+     border-radius: 8px;
+     background: var(--bg);
+     color: var(--ink);
+     min-width: 0;
+}
+
+input:focus-visible,
+select:focus-visible,
+button:focus-visible {
+     outline: 2px solid var(--rose);
+     outline-offset: 1px;
+}
+
+button {
+     font-weight: 500;
+     font-size: 14px;
+     padding: 10px 16px;
+     border: 0;
+     border-radius: 7px;
+     background: var(--rose);
+     color: #fff;
+     cursor: url('Cursors/pointinghand.svg') 0 0, auto;
+}
+
+button:hover {
+     transform: translateY(-2px) scale(1.03);
+     box-shadow:
+          0 20px 70px rgba(0, 0, 0, 0.4),
+          inset 0 1px 1px rgba(255, 255, 255, 0.6);
+     transition: 500ms;
+}
+
+button.ghost {
+     background: var(--rose-soft);
+     color: var(--rose);
+}
+
+
+.tw {
+     overflow-x: auto;
+     background: var(--surface);
+     border: 1px solid var(--line);
+     border-radius: 12px;
+}
+
+table {
+     width: 100%;
+     border-collapse: collapse;
+     min-width: 560px;
+}
+
+th {
+     text-align: left;
+     font-weight: 500;
+     font-size: 13px;
+     color: var(--muted);
+     padding: 10px 15px;
+     border-bottom: 1px solid var(--line);   
+}
+
+td {
+     padding: 10px 15px;
+     border-bottom: 1px solid var(--line);
+}
+
+tr:last-child td {
+     border-bottom: 0;
+}
+
+td select {
+     padding: 5px 8px;
+     font-size: 15px;
+}
+
+.tag {
+     display: inline-block;
+     padding: 2px 10px;
+     border-radius: 99px;
+     font-size: 12px;
+     background: var(--rose-soft);
+     color: var(--rose);
+}
+
+.tag.ok {
+     background: rgba(46, 125, 82, .15);
+     color: var(--ok);
+}
+
+.empty {
+     padding: 20px;
+     color: var(--muted);
+     text-align: center;
+}
+
+#toast {
+     position: fixed;
+     left: 50%;
+     bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+     transform: translateX(-50%);
+     background: var(--ink);
+     color: var(--bg);
+     padding: 10px 18px;
+     border-radius: 8px;
+     font-size: 14px;
+     opacity: 0;
+     pointer-events: none;
+     transition: opacity 0.2s;
+}
+
+#toast.on {
+     opacity: 1;
+}
+
+.footer-top-icon {
+     height: 40px;
+     margin-top: 7px;
+     margin-bottom: 0;
+     padding-bottom: 0;
+     border-radius: 2px;
+     cursor: url('Cursors/pointinghand.svg') 0 0, pointer;
+}
+
+ .footer-top-icon:hover {
+      transform: translateY(-2px) scale(1.01);
+      box-shadow:
+          0 3px 70px rgba(0, 0, 0, 0.4),
+          inset 0 1px 1px rgba(255, 255, 255, 0.6);
+          border-radius: 10px;
+          transition: 500ms; 
+ }
+
+@media (prefers-reduced-motion: reduce) {
+     html {
+          scroll-behavior: auto;
+     }
+
+     #toast {
+          transition: none;
+     }
+}
+
+/* Animations */
+
+@keyframes fadeInRight {
+     from {
+          opacity: 0;
+          transform: translateX(60px);
+     }
+
+     to {
+          opacity: 1;
+          transform: translateX(0px);
+     }
+}
+
+@keyframes fadeInTop {
+     from {
+          opacity: 0;
+          transform: translateY(-60px);
+     }
+
+     to {
+          opacity: 1;
+          transform: translateY(0px);
+     }
+}
+
+@keyframes fadeInLeft {
+     from {
+          opacity: 0;
+          transform: translateX(-150px);
+     }
+
+     to {
+          opacity: 1;
+          transform: translateX(0px);
+     }
+}
+
+section {
+     animation: fadeInRight 1s forwards;
+}
+
+h1 {
+     animation: fadeInLeft 1.5s forwards;
+}
+
+.brand {
+     animation: fadeInTop 1.7s forwards;
+}
+
+nav a {
+     animation: fadeInTop 1s forwards;
+}
+
+.stat {
+     animation: fadeInRight 1.7s forwards;
+}
+
+p {
+     animation: fadeInRight 1s forwards;
+}
